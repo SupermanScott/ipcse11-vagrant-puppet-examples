@@ -1,4 +1,10 @@
 Vagrant::Config.run do |config|
+
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = "manifests"
+    puppet.manifest_file = "site.pp"
+  end
+
   config.vm.define :web01 do |config|
     config.vm.box = "maverick64"
     config.vm.network "33.33.33.11"
@@ -10,4 +16,5 @@ Vagrant::Config.run do |config|
     config.vm.network "33.33.33.12"
     config.vm.host_name = "web02.domain.test"
   end
+
 end
