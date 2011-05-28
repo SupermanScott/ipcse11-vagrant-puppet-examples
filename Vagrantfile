@@ -17,4 +17,10 @@ Vagrant::Config.run do |config|
     config.vm.host_name = "web02.domain.test"
   end
 
+  config.vm.define :lb do |config|
+    config.vm.box = "maverick64"
+    config.vm.network "33.33.33.10"
+    config.vm.host_name = "lb.domain.test"
+  end
+
 end
